@@ -64,7 +64,7 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\ProjectName\\": "src/"
+            "Lipoti\\Shop\\": "src/"
         }
     },
     "replace": {

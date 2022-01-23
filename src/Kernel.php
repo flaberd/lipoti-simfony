@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace VendorName\ProjectName;
+namespace Lipoti\Shop;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
