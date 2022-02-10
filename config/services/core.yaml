@@ -9,4 +9,9 @@ services:
         resource: '../../src/Core/Controller'
         public: true
 
+    Lipoti\Shop\Core\DataFixtures\:
+        resource: '../../src/Core/DataFixtures'
+
+    Lipoti\Shop\Core\Manager\UserManager: ~
+    Lipoti\Shop\Core\Validator\Constraints\UniqueDTOPropertyValidator: ~
     # VendorName\ProjectName\Core\ServiceName: ~

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace VendorName\ProjectName\Common\Entity\Traits;
+namespace Lipoti\Shop\Common\Entity\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;

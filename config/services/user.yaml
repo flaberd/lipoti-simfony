@@ -1,0 +1,15 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Lipoti\Shop\User\Controller\:
+    resource: '../../src/User/Controller'
+    public: true
+
+  Lipoti\Shop\User\Security\LoginFormAuthenticator: ~
+  Lipoti\Shop\User\Security\UserChecker: ~
+  Lipoti\Shop\User\Factory\UserTokenFactory: ~
+  # VendorName\ProjectName\Core\ServiceName: ~

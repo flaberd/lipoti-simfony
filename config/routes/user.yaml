@@ -1,0 +1,7 @@
+controllers:
+  resource: ../../src/User/Controller/
+  type: annotation
+
+user_user_registration:
+  path: /registration
+  controller: Lipoti\Shop\User\Controller\Registration\RegistrationController

@@ -2,6 +2,6 @@ controllers:
     resource: ../../src/Core/Controller/
     type: annotation
 
-core_contact_us:
+core_home:
     path: /
     controller: Lipoti\Shop\Core\Controller\HomePageController
