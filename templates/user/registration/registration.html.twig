@@ -3,5 +3,73 @@
     <h3 class="text-center">
         {% trans %}registration.page_title{% endtrans %}
     </h3>
-    {{ form(form) }}
+    <main class="page-section inner-page-sec-padding-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 mb--30 mb-lg--0">
+                    <!-- Login Form s-->
+                    {{ form_start(form) }}
+                        <div class="login-form">
+                            <h4 class="login-title">{% trans %}registration.new_customer_form_title{% endtrans %}</h4>
+                            <div class="row">
+                                <div class="col-md-12 col-12 mb--15">
+                                    {{ form_row(form.firstName, {
+                                        'label': 'registration.label.first_name' | trans,
+                                        'attr': {
+                                            'class': 'mb-0 form-control',
+                                            'placeholder': 'registration.security.enter_your_first_name' | trans
+                                        }
+                                    }) }}
+                                </div>
+                                <div class="col-md-12 col-12 mb--15">
+                                    {{ form_row(form.lastName, {
+                                        'label': 'registration.label.last_name' | trans,
+                                        'attr': {
+                                            'class': 'mb-0 form-control',
+                                            'placeholder': 'registration.security.enter_your_last_name' | trans
+                                        }
+                                    }) }}
+                                </div>
+                                <div class="col-12 mb--20">
+                                    {{ form_row(form.email, {
+                                        'label': 'registration.label.email' | trans,
+                                        'attr': {
+                                            'class': 'mb-0 form-control',
+                                            'placeholder': 'registration.security.enter_your_email' | trans
+                                        }
+                                    }) }}
+                                </div>
+                                <div class="col-lg-6 mb--20">
+                                    {{ form_row(form.password.first, {
+                                        'label': 'registration.label.password' | trans,
+                                        'attr': {
+                                            'class': 'mb-0 form-control',
+                                            'placeholder': 'registration.security.enter_your_password' | trans
+                                        }
+                                    }) }}
+                                </div>
+                                <div class="col-lg-6 mb--20">
+                                    {{ form_row(form.password.second, {
+                                        'label': 'registration.label.repeat_password' | trans,
+                                        'attr': {
+                                            'class': 'mb-0 form-control',
+                                            'placeholder': 'registration.security.repeat_your_password' | trans
+                                        }
+                                    }) }}
+                                </div>
+                                <div class="col-md-12">
+                                    {{ form_row(form.registration, {
+                                        'label': 'registration.label.registration_btn' | trans,
+                                        'attr': {
+                                            'class': 'btn btn-outlined',
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </main>
 {% endblock %}
