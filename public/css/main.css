@@ -21146,8 +21146,7 @@ p.form-messege {
     display: block;
     font-size: 13px;
     margin-bottom: 8px;
-    font-weight: 400;
-    text-transform: capitalize; }
+    font-weight: 400; }
   .login-form .nice-select {
     width: 100%;
     background-color: transparent;
