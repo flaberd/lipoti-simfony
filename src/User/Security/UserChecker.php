@@ -17,10 +17,11 @@ class UserChecker implements UserCheckerInterface
             return;
         }
 
-        if (!$user->getEmaiConfirm()) {
-            // the message passed to this exception is meant to be displayed to the user
-            throw new CustomUserMessageAccountStatusException('Your email not confirmed.');
-        }
+        //CHECK CONFIRM EMAIL ON LOGIN
+//        if (!$user->getEmaiConfirm()) {
+//            // the message passed to this exception is meant to be displayed to the user
+//            throw new CustomUserMessageAccountStatusException('Your email not confirmed.');
+//        }
 
         if ($user->getIsBlock()) {
             // the message passed to this exception is meant to be displayed to the user

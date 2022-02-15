@@ -1,17 +1,22 @@
 parameters:
 
 services:
-    _defaults:
-        autowire: true
-        autoconfigure: true
+  _defaults:
+    autowire: true
+    autoconfigure: true
 
-    Lipoti\Shop\Core\Controller\:
-        resource: '../../src/Core/Controller'
-        public: true
+  Lipoti\Shop\Core\Controller\:
+    resource: '../../src/Core/Controller'
+    public: true
 
-    Lipoti\Shop\Core\DataFixtures\:
-        resource: '../../src/Core/DataFixtures'
+  Lipoti\Shop\Core\DataFixtures\:
+    resource: '../../src/Core/DataFixtures'
 
-    Lipoti\Shop\Core\Manager\UserManager: ~
-    Lipoti\Shop\Core\Validator\Constraints\UniqueDTOPropertyValidator: ~
-    # VendorName\ProjectName\Core\ServiceName: ~
+  Lipoti\Shop\Core\Repository\:
+    resource: '../../src/Core/Repository'
+
+  Lipoti\Shop\Core\Manager\:
+    resource: '../../src/Core/Manager'
+
+  Lipoti\Shop\Core\Validator\Constraints\UniqueDTOPropertyValidator: ~
+  # VendorName\ProjectName\Core\ServiceName: ~

@@ -15,6 +15,9 @@
 </head>
 
 <body>
+
+{#{{ render(controller('Lipoti\\Shop\\User\\Controller\\Registration\\RegistrationSuccessController')) }}#}
+
 <div class="site-wrapper" id="top">
     <div class="site-header header-3  d-none d-lg-block">
         <div class="container">
@@ -113,8 +116,12 @@
                         <div class="main-navigation flex-lg-right">
                             <div class="cart-widget">
                                 <div class="login-block">
-                                    <a href="login-register.html" class="font-weight-bold">{% trans %}header.login{% endtrans %}</a> <br>
-                                    <span>or</span><a href="{{ path('user_user_registration') }}">{% trans %}header.register{% endtrans %}</a>
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        <a href="{{ path('app_logout') }}" class="font-weight-bold">{% trans %}header.login_block.logout{% endtrans %}</a> <br>
+                                    {% else %}
+                                        <a href="{{ path('app_login') }}" class="font-weight-bold">{% trans %}header.login_block.login{% endtrans %}</a> <br>
+                                        <span>{% trans %}header.login_block.or{% endtrans %}</span><a href="{{ path('user_user_registration') }}">{% trans %}header.login_block.register{% endtrans %}</a>
+                                    {% endif %}
                                 </div>
                                 <div class="cart-block">
                                     <div class="cart-total">

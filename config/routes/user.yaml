@@ -5,3 +5,7 @@ controllers:
 user_user_registration:
   path: /registration
   controller: Lipoti\Shop\User\Controller\Registration\RegistrationController
+
+user_user_registration_success:
+  path: /registration-success
+  controller: Lipoti\Shop\User\Controller\Registration\RegistrationSuccessController

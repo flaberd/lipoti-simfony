@@ -1,4 +1,5 @@
 parameters:
+    info_email: 'fabien@example.com'
 
 services:
     _defaults:

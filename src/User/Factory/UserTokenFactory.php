@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Lipoti\Shop\User\Factory;
-
 
 use Lipoti\Shop\Core\Entity\User;
 use Lipoti\Shop\Core\Entity\UserToken;
