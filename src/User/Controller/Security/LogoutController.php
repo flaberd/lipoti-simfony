@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Lipoti\Shop\User\Controller\Security;
-
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class LogoutController extends AbstractController
 {
     /**
-     * @Route("/logout", name="app_logout")
+     * @Route("/{_locale<%app.supported_locales%>}/logout", name="app_logout")
      */
     public function __invoke(): void
     {

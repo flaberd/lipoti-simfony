@@ -33,27 +33,18 @@
                         </li>
                         <li class="dropdown-trigger language-dropdown">
                             <a href="">
-                                <span class="flag-img">
-                                    <img src="image/icon/eng-flag.png" alt="">
-                                </span>
-                                en-gb
+                                {{ app.request.locale|locale_name(app.request.locale) }}
                             </a>
                             <i class="fas fa-chevron-down dropdown-arrow"></i>
                             <ul class="dropdown-box">
                                 <li>
-                                    <a href="">
-                                        <span class="flag-img">
-                                            <img src="image/icon/eng-flag.png" alt="">
-                                        </span>
-                                        English
+                                    <a href="{{ path(app.request.attributes.get('_route'), {_locale: 'ru'}) }}">
+                                        {{ 'ru'|locale_name('ru') }}
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
-                                        <span class="flag-img">
-                                            <img src="image/icon/germany-flag.png" alt="">
-                                        </span>
-                                        Germany
+                                    <a href="{{ path(app.request.attributes.get('_route'), {_locale: 'uk'}) }}">
+                                        {{ 'uk'|locale_name('uk') }}
                                     </a>
                                 </li>
                             </ul>
@@ -102,8 +93,8 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-3">
-                        <a href="index.html" class="site-brand">
-                            <img src="image/logo.png" alt="">
+                        <a href="{{ path('core_home') }}" class="site-brand">
+                            <img src="{{ asset('image/logo.png') }}" alt="">
                         </a>
                     </div>
                     <div class="col-lg-5">
@@ -120,7 +111,8 @@
                                         <a href="{{ path('app_logout') }}" class="font-weight-bold">{% trans %}header.login_block.logout{% endtrans %}</a> <br>
                                     {% else %}
                                         <a href="{{ path('app_login') }}" class="font-weight-bold">{% trans %}header.login_block.login{% endtrans %}</a> <br>
-                                        <span>{% trans %}header.login_block.or{% endtrans %}</span><a href="{{ path('user_user_registration') }}">{% trans %}header.login_block.register{% endtrans %}</a>
+                                        <span>{% trans %}header.login_block.or{% endtrans %}</span>
+                                        <a href="{{ path('user_user_registration') }}">{% trans %}header.login_block.register{% endtrans %}</a>
                                     {% endif %}
                                 </div>
                                 <div class="cart-block">
@@ -140,7 +132,7 @@
                                         <div class=" single-cart-block ">
                                             <div class="cart-product">
                                                 <a href="product-details.html" class="image">
-                                                    <img src="image/products/cart-product-1.jpg" alt="">
+                                                    <img src="{{ asset('image/products/cart-product-1.jpg') }}" alt="">
                                                 </a>
                                                 <div class="content">
                                                     <h3 class="title"><a href="product-details.html">Kodak PIXPRO
@@ -424,7 +416,7 @@
                 <div class="row align-items-sm-end align-items-center">
                     <div class="col-md-4 col-7">
                         <a href="index.html" class="site-brand">
-                            <img src="image/logo.png" alt="">
+                            <img src="{{ asset('image/logo.png') }}" alt="">
                         </a>
                     </div>
                     <div class="col-md-5 order-3 order-md-2">
@@ -727,7 +719,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-4">
                     <a href="index.html" class="site-brand">
-                        <img src="image/logo.png" alt="">
+                        <img src="{{ asset('image/logo.png') }}" alt="">
                     </a>
                 </div>
                 <div class="col-lg-8">
@@ -866,7 +858,7 @@
             <div class=" col-xl-3 col-lg-4 col-sm-6">
                 <div class="single-footer pb--40">
                     <div class="brand-footer footer-title">
-                        <img src="image/logo--footer.png" alt="">
+                        <img src="{{ asset('image/logo--footer.png') }}" alt="">
                     </div>
                     <div class="footer-contact">
                         <p><span class="label">Address:</span><span class="text">Example Street 98, HH2 BacHa, New
@@ -933,7 +925,7 @@
             <p class="copyright-heading">Suspendisse in auctor augue. Cras fermentum est ac fermentum tempor. Etiam
                 vel magna volutpat, posuere eros</p>
             <a href="#" class="payment-block">
-                <img src="image/icon/payment.png" alt="">
+                <img src="{{ asset('image/icon/payment.png') }}" alt="">
             </a>
             <p class="copyright-text">Copyright © 2019 <a href="#" class="author">Pustok</a>. All Right Reserved.
                 <br>

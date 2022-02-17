@@ -3,9 +3,9 @@ controllers:
   type: annotation
 
 user_user_registration:
-  path: /registration
+  path: /{_locale<%app.supported_locales%>}/registration
   controller: Lipoti\Shop\User\Controller\Registration\RegistrationController
 
 user_user_registration_success:
-  path: /registration-success
+  path: /{_locale<%app.supported_locales%>}/registration-success
   controller: Lipoti\Shop\User\Controller\Registration\RegistrationSuccessController

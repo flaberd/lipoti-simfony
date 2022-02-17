@@ -34,7 +34,7 @@ class RegistrationController extends AbstractController
 
     public function __invoke(Request $request): Response
     {
-        if($this->isGranted('IS_AUTHENTICATED_FULLY')){
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
             return $this->redirectToRoute('core_home');
         }
 
