@@ -1,7 +1,0 @@
-controllers:
-    resource: ../../src/Core/Controller/
-    type: annotation
-
-core_home:
-    path: /{_locale<%app.supported_locales%>}/
-    controller: Lipoti\Shop\Core\Controller\HomePageController

@@ -1,6 +1,7 @@
 parameters:
     info_email: 'fabien@example.com'
-    app.supported_locales: 'uk|ru'
+    app_locales: 'uk|en'
+    default_locale: 'uk'
 
 services:
     _defaults:
