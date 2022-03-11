@@ -12,6 +12,10 @@ services:
   Lipoti\Shop\Core\DataFixtures\:
     resource: '../../src/Core/DataFixtures'
 
+  Lipoti\Shop\Core\DataFixtures\CategoryFixtures:
+    arguments:
+      $locales: '%locales%'
+
   Lipoti\Shop\Core\Repository\:
     resource: '../../src/Core/Repository'
 
