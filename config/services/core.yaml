@@ -23,4 +23,5 @@ services:
     resource: '../../src/Core/Manager'
 
   Lipoti\Shop\Core\Validator\Constraints\UniqueDTOPropertyValidator: ~
+#  Lipoti\Shop\Category\Controller\Parts\CategoryNavController: ~
   # VendorName\ProjectName\Core\ServiceName: ~
