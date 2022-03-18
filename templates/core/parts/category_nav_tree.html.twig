@@ -1,0 +1,8 @@
+<li class="{% if children %}cat-item has-children{% endif %}">
+    <a href="#">{{ category.getId }}</a>
+    {% if children %}
+        <ul class="sub-menu">
+            {{ children | raw }}
+        </ul>
+    {% endif %}
+</li>
