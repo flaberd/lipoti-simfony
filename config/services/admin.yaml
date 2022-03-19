@@ -1,0 +1,13 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Lipoti\Shop\Admin\Controller\:
+    resource: '../../src/Admin/Controller'
+    public: true
+
+  Lipoti\Shop\Admin\Security\LoginFormAuthenticator: ~
+  # VendorName\ProjectName\Core\ServiceName: ~

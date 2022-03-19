@@ -4,8 +4,8 @@ security:
     password_hashers:
         Lipoti\Shop\Core\Entity\User:
             algorithm: auto
-#        Sprint\ZipBlog\Admin\Entity\Admin:
-#            algorithm: auto
+        Lipoti\Shop\Core\Entity\Admin:
+            algorithm: auto
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         users_in_memory: { memory: null }
@@ -13,14 +13,21 @@ security:
             entity:
                 class: Lipoti\Shop\Core\Entity\User
                 property: email
-#        admin_user_provider:
-#            entity:
-#                class: Sprint\ZipBlog\Admin\Entity\Admin
-#                property: email
+        admin_user_provider:
+            entity:
+                class: Lipoti\Shop\Core\Entity\Admin
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        admin:
+            pattern: ^/admin($|/)
+            lazy: true
+            provider: admin_user_provider
+            custom_authenticator:  Lipoti\Shop\Admin\Security\LoginFormAuthenticator
+            logout:
+                path: admin_logout
         main:
             pattern: ^/
             lazy: true
@@ -39,5 +46,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/admin/login, roles: PUBLIC_ACCESS }
+        - { path: ^/admin($|/), roles: IS_AUTHENTICATED_FULLY }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

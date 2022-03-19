@@ -6,14 +6,13 @@ namespace Lipoti\Shop\Core\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Lipoti\Shop\Common\Entity\Traits\IdentifiableEntityTrait;
-use Lipoti\Shop\Core\Repository\UserRepository;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\Entity
  */
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class Admin implements UserInterface, PasswordAuthenticatedUserInterface
 {
     use IdentifiableEntityTrait;
 
@@ -21,21 +20,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private string $email;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private ?string $firstName;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private ?string $lastName;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private ?string $avatar = null;
 
     /**
      * @var string[]
@@ -49,31 +33,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private string $password;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private int $isBlock = 0;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private int $emailConfirm = 0;
-
-    /**
-     * @param string[] $roles
-     */
-    public function __construct(string $email, array $roles, string $password, string $firstName, string $lastName)
+    public function __construct(string $email, string $password)
     {
         $this->email = $email;
-        $this->roles = $roles;
+        $this->roles = ['ROLE_ADMIN'];
         $this->password = $password;
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
-    }
-
-    public function __toString()
-    {
-        return (string) $this->firstName;
     }
 
     public function getEmail(): string
@@ -88,36 +52,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getFirstName(): string
-    {
-        return $this->firstName;
-    }
-
-    public function setFirstName(string $firstName): void
-    {
-        $this->firstName = $firstName;
-    }
-
-    public function getLastName(): string
-    {
-        return $this->lastName;
-    }
-
-    public function setLastName(string $lastName): void
-    {
-        $this->lastName = $lastName;
-    }
-
-    public function getAvatar(): ?string
-    {
-        return $this->avatar;
-    }
-
-    public function setAvatar(?string $avatar): void
-    {
-        $this->avatar = $avatar;
-    }
-
     /**
      * @see UserInterface
      */
@@ -125,7 +59,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
@@ -150,26 +83,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->password = $password;
 
         return $this;
-    }
-
-    public function getIsBlock(): int
-    {
-        return $this->isBlock;
-    }
-
-    public function setIsBlock(int $isBlock): void
-    {
-        $this->isBlock = $isBlock;
-    }
-
-    public function getEmaiConfirm(): int
-    {
-        return $this->emailConfirm;
-    }
-
-    public function setEmaiConfirm(int $emailConfirm): void
-    {
-        $this->emailConfirm = $emailConfirm;
     }
 
     /**
