@@ -40,6 +40,11 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
         $this->password = $password;
     }
 
+    public function __toString()
+    {
+        return (string) $this->email;
+    }
+
     public function getEmail(): string
     {
         return $this->email;

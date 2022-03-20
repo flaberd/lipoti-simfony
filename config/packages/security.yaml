@@ -25,7 +25,7 @@ security:
             pattern: ^/admin($|/)
             lazy: true
             provider: admin_user_provider
-            custom_authenticator:  Lipoti\Shop\Admin\Security\LoginFormAuthenticator
+            custom_authenticator: Lipoti\Shop\Admin\Security\LoginFormAuthenticator
             logout:
                 path: admin_logout
         main:
@@ -33,7 +33,7 @@ security:
             lazy: true
             provider: app_user_provider
             custom_authenticator: Lipoti\Shop\User\Security\LoginFormAuthenticator
-            user_checker: Lipoti\Shop\User\Security\UserChecker
+#            user_checker: Lipoti\Shop\User\Security\UserChecker
             logout:
                 path: app_logout
 

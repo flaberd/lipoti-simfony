@@ -13,11 +13,11 @@ class LoginController extends AbstractController
     public function __invoke(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->getUser()) {
-            return $this->redirectToRoute('core_home');
+            return $this->redirectToRoute('admin_dashboard');
         }
-
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
+        // var_dump($error);die();
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
