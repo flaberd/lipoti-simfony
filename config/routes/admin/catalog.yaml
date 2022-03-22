@@ -1,0 +1,3 @@
+admin_catalog_category_list:
+  path: /admin/category-list
+  controller: Lipoti\Shop\Admin\Controller\Catalog\Category\CategoryListController

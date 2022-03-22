@@ -1,0 +1,45 @@
+<!-- Sidebar Menu -->
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        {% for level_1 in menu %}
+            <li class="nav-item {% if level_1.active != '' %}menu-open{% endif %}">
+                {% if level_1.path %}
+                    <a href="{{ path(level_1.path) }}" class="nav-link {% if level_1.active != '' %}active{% endif %}">
+                {% else %}
+                    <a href="#" class="nav-link {% if level_1.active != '' %}active{% endif %}">
+                {% endif %}
+                    {% if level_1.icon %}
+                        <i class="nav-icon {{ level_1.icon }}"></i>
+                    {% else %}
+                        <i class="nav-icon far fa-circle"></i>
+                    {% endif %}
+                    <p>
+                        {{ level_1.name }}
+                        {% if level_1.children %}
+                            <i class="right fas fa-angle-left"></i>
+                        {% endif %}
+                    </p>
+                </a>
+                {% if level_1.children %}
+                    <ul class="nav nav-treeview">
+                        {% for level_2 in level_1.children %}
+                            <li class="nav-item">
+                                <a href="{{ path(level_2.path) }}" class="nav-link {% if level_2.active != '' %}active{% endif %}">
+                                    {% if level_2.icon %}
+                                        <i class="nav-icon {{ level_2.icon }}"></i>
+                                    {% else %}
+                                        <i class="nav-icon far fa-circle"></i>
+                                    {% endif %}
+                                    <p>{{ level_2.name }}</p>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
+<!-- /.sidebar-menu -->

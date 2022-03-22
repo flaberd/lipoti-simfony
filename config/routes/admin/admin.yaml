@@ -1,14 +1,14 @@
 controllers:
-  resource: ../../src/Admin/Controller/
+  resource: ../../../src/Admin/Controller/
   type: annotation
-
-admin_dashboard:
-  path: /admin
-  controller: Lipoti\Shop\Admin\Controller\DashboardController
 
 admin_login:
   path: /admin/login
   controller: Lipoti\Shop\Admin\Controller\Security\LoginController
+
+admin_dashboard:
+  path: /admin
+  controller: Lipoti\Shop\Admin\Controller\DashboardController
 
 admin_logout:
   path: /admin/logout

@@ -9,5 +9,9 @@ services:
     resource: '../../src/Admin/Controller'
     public: true
 
+  Lipoti\Shop\Admin\Widget\:
+    resource: '../../src/Admin/Widget'
+    public: true
+
   Lipoti\Shop\Admin\Security\LoginFormAuthenticator: ~
   # VendorName\ProjectName\Core\ServiceName: ~

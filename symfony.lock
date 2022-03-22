@@ -109,6 +109,24 @@
     "gedmo/doctrine-extensions": {
         "version": "v3.1.0"
     },
+    "knplabs/knp-menu": {
+        "version": "0.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "0.0",
+            "ref": ""
+        }
+    },
+    "knplabs/knp-menu-bundle": {
+        "version": "0.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "0.0",
+            "ref": ""
+        }
+    },
     "laminas/laminas-code": {
         "version": "4.4.2"
     },
