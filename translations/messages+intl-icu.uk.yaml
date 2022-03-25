@@ -17,7 +17,3 @@ header.login_block.login: Увійдіть
 header.login_block.or: або
 header.login_block.register: Зареєструйтеся
 header.category_menu.title: Категорії
-sidebar_menu.dashboard: __sidebar_menu.dashboard
-sidebar_menu.catalog: __sidebar_menu.catalog
-sidebar_menu.category: __sidebar_menu.category
-sidebar_menu.logout: __sidebar_menu.logout

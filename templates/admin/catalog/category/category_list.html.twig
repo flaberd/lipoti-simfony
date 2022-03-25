@@ -1,89 +1,134 @@
+{% trans_default_domain 'admin' %}
 {% extends 'base_admin.html.twig' %}
 {% block body %}
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>DataTables</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">DataTables</li>
-                        </ol>
-                    </div>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>{% trans %}catalog.category_list.page_title{% endtrans %}</h1>
                 </div>
-            </div><!-- /.container-fluid -->
-        </section>
-
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">DataTables</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Responsive Hover Table</h3>
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        {{ form_start(form, {'method': 'GET'}) }}
+                            <div class="card-header">
+                                <h3 class="card-title">{% trans %}catalog.category_list.filter_title{% endtrans %}</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body row">
+                                <div class="col-sm-6">
+                                    <div class="form-group ">
+                                        <label for="search">
+                                            {% trans %}catalog.category_list.filter_search_title{% endtrans %}
+                                        </label>
+                                        <div class="input-group">
+                                            {{ form_widget(form.query, {'attr': {'class': 'form-control'}}) }}
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fas fa-search"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="exampleSelectRounded0">
+                                            {% trans %}catalog.category_list.filter_status_title{% endtrans %}
 
-                            <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default">
-                                            <i class="fas fa-search"></i>
-                                        </button>
+                                        </label>
+                                        <select class="custom-select" id="exampleSelectRounded0">
+                                            <option>Value 1</option>
+                                            <option>Value 2</option>
+                                            <option>Value 3</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer" style="text-align: right;">
+                                {{ form_widget(form.submit, {
+                                    'attr': {
+                                        'class': 'btn btn-primary'
+                                    },
+                                    'label': 'catalog.category_list.filter_submit_btn' | trans
+                                }) }}
+                            </div>
+                        {{ form_end(form) }}
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">{% trans %}catalog.category_list.lits_title{% endtrans %}</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>User</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
-                                    <th>Reason</th>
+                                    <th>{% trans %}catalog.category_list.column_title_id{% endtrans %}</th>
+                                    <th>{% trans %}catalog.category_list.column_title_name{% endtrans %}</th>
+                                    <th>{% trans %}catalog.category_list.column_title_parent{% endtrans %}</th>
+                                    <th>{% trans %}catalog.category_list.column_title_status{% endtrans %}</th>
+                                    <th>{% trans %}catalog.category_list.column_title_action{% endtrans %}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
+                                {% if pagination.getTotalItemCount > 0 %}
+                                    {% for category in pagination %}
+                                        <tr>
+                                            <td>{{ category.id }}</td>
+                                            <td>{{ category.getLangByLocale(app.request.locale).getName }}</td>
+                                            <td>
+                                                {% set parent = category.getParent %}
+                                                {% if parent != NULL %}
+                                                    {{ parent.getLangByLocale(app.request.locale).getName }}
+                                                {% else %}
+                                                    {% trans %}catalog.category_list.column_value_no_parent{% endtrans %}
+                                                {% endif %}
+                                            </td>
+                                            <td><span class="tag tag-success">Approved</span></td>
+                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                        </tr>
+{#                                        <fieldset>#}
+{#                                            <legend>#}
+{#                                                <a href="{{ path('post_post_show', {id: post.id}) }}">{{ post.getTitle }}</a>#}
+{#                                            </legend>#}
+{#                                            {% if(post.getThumbnail) %}#}
+{#                                                <div>#}
+{#                                                    <img width="150" src="{{ asset('files/img/' ~ post.getThumbnail) }}" alt="">#}
+{#                                                </div>#}
+{#                                            {% endif %}#}
+{#                                            <div>{{ post.getSummary }}</div>#}
+{#                                        </fieldset>#}
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="5">{% trans %}catalog.category_list.list_no_category{% endtrans %}</td>
+                                    </tr>
+                                {% endif %}
                                 </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer clearfix">
+                            {{ knp_pagination_render(pagination) }}
                             <ul class="pagination pagination-sm m-0 float-right">
                                 <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
                                 <li class="page-item"><a class="page-link" href="#">1</a></li>

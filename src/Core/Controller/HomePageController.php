@@ -11,8 +11,6 @@ class HomePageController extends AbstractController
 {
     public function __invoke(): Response
     {
-//        var_dump($this->getParameter('locales_prefix'));
-
         return $this->render('core/home_page.html.twig', [
         ]);
     }

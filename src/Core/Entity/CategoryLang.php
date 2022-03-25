@@ -15,7 +15,8 @@ class CategoryLang
     use IdentifiableEntityTrait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Lipoti\Shop\Core\Entity\Category")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="lang")
+     * @ORM\JoinColumn(nullable=false)
      */
     private Category $category;
 
