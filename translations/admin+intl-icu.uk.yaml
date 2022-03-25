@@ -10,8 +10,8 @@ catalog.category_list.filter_status_title: Статус
 catalog.category_list.lits_title: 'Список категорій'
 catalog.category_list.column_title_id: ID
 catalog.category_list.column_title_name: Назва
-catalog.category_list.column_title_parent: Батьківська категорія
+catalog.category_list.column_title_parent: 'Батьківська категорія'
 catalog.category_list.column_title_status: Статус
 catalog.category_list.column_title_action: Дії
 catalog.category_list.column_value_no_parent: Нема
-catalog.category_list.list_no_category: Не знайдено жодної категорії
+catalog.category_list.list_no_category: 'Не знайдено жодної категорії'

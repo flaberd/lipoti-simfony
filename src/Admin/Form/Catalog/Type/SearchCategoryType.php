@@ -19,17 +19,19 @@ class SearchCategoryType extends AbstractType
                 'required' => false,
                 'label' => false,
             ])
-//            ->add('status', ChoiceType::class, [
-//                'required' => false,
-//                'choices' => [
-//                    Post::STATUS_DRAFT => Post::STATUS_DRAFT,
-//                    Post::STATUS_DELAYED => Post::STATUS_DELAYED,
-//                    Post::STATUS_PUBLISHED => Post::STATUS_PUBLISHED,
-//                    Post::STATUS_BLOCKED => Post::STATUS_BLOCKED,
-//                    Post::STATUS_ARCHIVED => Post::STATUS_ARCHIVED,
+            ->add('status', ChoiceType::class, [
+                'required' => false,
+                'choices' => [
+                    'catalog.category_list.filter_choise_element_false' => '0',
+                    'catalog.category_list.filter_choise_element_true'=> '1',
+                ],
+                'choice_translation_domain' => 'admin_forms',
+//                'choice_translation_parameters' => [
+//                    'catalog.category_list.filter_choise_element_false' => [],
+//                    'catalog.category_list.filter_choise_element_true' => [],
 //                ],
-//                'label' => 'Status',
-//            ])
+                'label' => false,
+            ])
             ->add('submit', SubmitType::class)
         ;
     }

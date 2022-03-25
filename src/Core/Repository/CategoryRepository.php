@@ -22,14 +22,18 @@ class CategoryRepository extends ServiceEntityRepository
     public function findAllByFilter(CategoryListFilter $filter)
     {
         $category = $this->createQueryBuilder('c')
-//            ->select('c.id')
             ->leftJoin('c.lang', 'cl')
             ->andWhere('cl.lang = :locale')
             ->setParameter('locale', $filter->getLocale())
-//            ->addSelect('cl.name')
 //            ->andWhere('p.status = :status')
 //            ->setParameter('status', Category::STATUS_PUBLISHED)
         ;
+
+        if ($filter->getStatus() !== null) {
+            $category->andWhere('c.status = :status')
+                ->setParameter('status', $filter->getStatus())
+            ;
+        }
 
         if ($filter->getQuery() !== null) {
             $category->andWhere('cl.name LIKE :search_query')
