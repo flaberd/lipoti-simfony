@@ -39,13 +39,14 @@ class CategoryListController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $filter->setQuery($searchCategoryDto->getQuery());
+            $filter->setStatus($searchCategoryDto->getStatus());
         }
         $categoryQuery = $this->categoryRepo->findAllByFilter($filter);
 
         $pagination = $this->paginator->paginate(
             $categoryQuery, // query NOT result
             $request->query->getInt('page', 1)/* page number */ ,
-            5// limit per page
+            15// limit per page
         );
 
         return $this->render('admin/catalog/category/category_list.html.twig', [

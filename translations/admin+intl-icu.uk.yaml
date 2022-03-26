@@ -15,3 +15,6 @@ catalog.category_list.column_title_status: Статус
 catalog.category_list.column_title_action: Дії
 catalog.category_list.column_value_no_parent: Нема
 catalog.category_list.list_no_category: 'Не знайдено жодної категорії'
+catalog.category_list.count_title: 'Всього категорій'
+catalog.category_list.column_value_status_true: Активно
+catalog.category_list.column_value_status_false: Не активно
