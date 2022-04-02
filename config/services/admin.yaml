@@ -14,4 +14,8 @@ services:
     public: true
 
   Lipoti\Shop\Admin\Security\LoginFormAuthenticator: ~
+
+  Lipoti\Shop\Admin\Form\TranslationArrayNameKeyType:
+    arguments:
+      $locales: '%locales%'
   # VendorName\ProjectName\Core\ServiceName: ~

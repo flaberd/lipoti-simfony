@@ -23,13 +23,9 @@ class SearchCategoryType extends AbstractType
                 'required' => false,
                 'choices' => [
                     'catalog.category_list.filter_choise_element_false' => '0',
-                    'catalog.category_list.filter_choise_element_true'=> '1',
+                    'catalog.category_list.filter_choise_element_true' => '1',
                 ],
                 'choice_translation_domain' => 'admin_forms',
-//                'choice_translation_parameters' => [
-//                    'catalog.category_list.filter_choise_element_false' => [],
-//                    'catalog.category_list.filter_choise_element_true' => [],
-//                ],
                 'label' => false,
             ])
             ->add('submit', SubmitType::class)

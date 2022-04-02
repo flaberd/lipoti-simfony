@@ -31,7 +31,7 @@ class Category
     /**
      * @ORM\OneToMany(targetEntity=CategoryLang::class, mappedBy="category")
      */
-    private Collection $lang;
+    private Collection $translation;
 
     public function getStatus(): int
     {
@@ -53,15 +53,34 @@ class Category
         $this->parent = $parent;
     }
 
-    public function getLang(): Collection
+    public function getTranslation(): Collection
     {
-        return $this->lang;
+        return $this->translation;
     }
 
-    public function getLangByLocale(string $locale): ?CategoryLang
+    public function getTranslationByLocale(string $locale): ?CategoryLang
     {
-        $criteria = Criteria::create()->where(Criteria::expr()->eq('lang', $locale));
+        $criteria = Criteria::create()->where(Criteria::expr()->eq('locale', $locale));
 
-        return $this->lang->matching($criteria)[0] ?? null;
+        return $this->translation->matching($criteria)[0] ?? null;
+    }
+
+    public function getDisplayName(): string
+    {
+        $criteria = Criteria::create()->where(Criteria::expr()->eq('locale', \Locale::getDefault()));
+
+        return $this->translation->matching($criteria)[0]->getName() ?? 'no_name';
+    }
+
+    public function getTreeDisplayName(): string
+    {
+        $criteria = Criteria::create()->where(Criteria::expr()->eq('locale', \Locale::getDefault()));
+
+        $name = '';
+        if ($this->translation->matching($criteria)[0]->getCategory()->getParent() !== null) {
+            $name = $this->translation->matching($criteria)[0]->getCategory()->getParent()->getTreeDisplayName() . '->';
+        }
+
+        return $name . $this->translation->matching($criteria)[0]->getName() ?? 'no_name';
     }
 }

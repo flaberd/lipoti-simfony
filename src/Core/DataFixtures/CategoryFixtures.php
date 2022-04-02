@@ -33,7 +33,7 @@ class CategoryFixtures extends Fixture
             foreach ($this->locales as $locale) {
                 $categoryLang = new CategoryLang();
                 $categoryLang->setName($locale . '_category_' . $i);
-                $categoryLang->setLang($locale);
+                $categoryLang->setLocale($locale);
                 $categoryLang->setCategory($category);
                 $this->em->persist($categoryLang);
             }
@@ -48,7 +48,7 @@ class CategoryFixtures extends Fixture
             foreach ($this->locales as $locale) {
                 $categoryLang = new CategoryLang();
                 $categoryLang->setName($locale . '_sub_category_' . $i);
-                $categoryLang->setLang($locale);
+                $categoryLang->setLocale($locale);
                 $categoryLang->setCategory($category);
                 $this->em->persist($categoryLang);
             }
