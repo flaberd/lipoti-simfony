@@ -8,7 +8,7 @@ use Lipoti\Shop\Core\Entity\Category;
 
 class CategoryEditDto
 {
-    private bool $status = false;
+    private int $status = 0;
 
     private ?Category $parent = null;
 
@@ -46,5 +46,13 @@ class CategoryEditDto
     public function getTranslation()
     {
         return $this->translation;
+    }
+
+    /**
+     * @param mixed $translation
+     */
+    public function setTranslation($translation): void
+    {
+        $this->translation = $translation;
     }
 }

@@ -3,5 +3,5 @@ admin_catalog_category_list:
   controller: Lipoti\Shop\Admin\Controller\Catalog\Category\CategoryListController
 
 admin_catalog_category_edit:
-  path: /admin/category-edit
+  path: /admin/category-edit/{id}
   controller: Lipoti\Shop\Admin\Controller\Catalog\Category\CategoryEditController

@@ -17,21 +17,21 @@ class CategoryLangDto
      *     maxMessage="Name cannot be longer than {{ limit }} characters"
      * )
      */
-    public static $name;
+    public string $name;
 
     /**
-     * @return mixed
+     * @return mixed|string
      */
-    public static function getName()
+    public function getName(): string
     {
-        return self::$name;
+        return $this->name;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed|string $name
      */
-    public static function setName($name): void
+    public function setName(string $name): void
     {
-        self::$name = $name;
+        $this->name = $name;
     }
 }

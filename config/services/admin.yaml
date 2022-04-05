@@ -9,13 +9,16 @@ services:
     resource: '../../src/Admin/Controller'
     public: true
 
-  Lipoti\Shop\Admin\Widget\:
-    resource: '../../src/Admin/Widget'
-    public: true
-
-  Lipoti\Shop\Admin\Security\LoginFormAuthenticator: ~
 
   Lipoti\Shop\Admin\Form\TranslationArrayNameKeyType:
     arguments:
       $locales: '%locales%'
+
+  Lipoti\Shop\Admin\Mapper\Catalog\CategoryEntityToCategoryEditDtoMapper: ~
+
+  Lipoti\Shop\Admin\Security\LoginFormAuthenticator: ~
+
+  Lipoti\Shop\Admin\Widget\:
+    resource: '../../src/Admin/Widget'
+    public: true
   # VendorName\ProjectName\Core\ServiceName: ~

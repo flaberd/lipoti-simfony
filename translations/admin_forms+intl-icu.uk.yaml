@@ -1,4 +1,4 @@
-common.status_false: Викнені
-common.status_true: Увімкнені
-catalog.category_list.filter_choise_element_false: Викнені
+common.status_false: Вимкнено
+common.status_true: Увімкнено
+catalog.category_list.filter_choise_element_false: Вимкнені
 catalog.category_list.filter_choise_element_true: Увімкнені
