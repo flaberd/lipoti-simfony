@@ -22,7 +22,6 @@ services:
 
   Lipoti\Shop\Admin\Security\LoginFormAuthenticator: ~
 
-  Lipoti\Shop\Admin\Widget\:
-    resource: '../../src/Admin/Widget'
-    public: true
+  Lipoti\Shop\Admin\Widget\SidebarMenu\SidebarMenuController: ~
+  Lipoti\Shop\Admin\Widget\SidebarMenu\SidebarMenuHandler: ~
   # VendorName\ProjectName\Core\ServiceName: ~

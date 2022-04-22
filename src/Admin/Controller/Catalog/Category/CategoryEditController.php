@@ -43,15 +43,13 @@ class CategoryEditController extends AbstractController
             $this->categoryManager->update($categoryEditDto, $category);
 
             $this->addFlash('success', $this->translator->trans('catalog.category_list.edit_success', [], 'admin'));
-//            var_dump($request->getUri());
-//            die();
+
             $urlGoBack = $session->get('urlGoBack');
-            if ( $urlGoBack &&  $urlGoBack != $request->getUri()) {
+            if ($urlGoBack && $urlGoBack !== $request->getUri()) {
                 return $this->redirect($urlGoBack);
-            }else{
-                return $this->redirectToRoute('admin_catalog_category_list');
             }
 
+            return $this->redirectToRoute('admin_catalog_category_list');
         }
         $session->set('urlGoBack', $request->headers->get('referer'));
 
