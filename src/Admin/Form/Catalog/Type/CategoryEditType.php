@@ -33,7 +33,7 @@ class CategoryEditType extends AbstractType
                 'expanded' => false,
                 'label' => false,
                 'required' => false,
-                'placeholder' => 'All category',
+                'placeholder' => 'noCategory',
             ])
             ->add('translation', TranslationArrayNameKeyType::class, [
                 'entry_type' => CategoryLangType::class,

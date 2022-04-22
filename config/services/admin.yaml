@@ -9,6 +9,10 @@ services:
     resource: '../../src/Admin/Controller'
     public: true
 
+  Lipoti\Shop\Admin\Manager\:
+    resource: '../../src/Admin/Manager'
+    public: true
+
 
   Lipoti\Shop\Admin\Form\TranslationArrayNameKeyType:
     arguments:
