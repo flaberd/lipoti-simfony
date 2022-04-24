@@ -57,7 +57,7 @@ class SidebarMenuController extends AbstractController
         $logout->setActive(false);
         $menu[] = $logout;
 
-        return $this->render('admin/parts/sidebar_menu.html.twig', [
+        return $this->render('admin/widget/sidebar_menu/sidebar_menu.html.twig', [
             'menu' => $menu,
         ]);
     }

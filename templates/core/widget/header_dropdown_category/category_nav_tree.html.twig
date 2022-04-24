@@ -1,5 +1,5 @@
 <li class="{% if children %}cat-item has-children{% endif %}">
-    <a href="#">{{ category.getId }}</a>
+    <a href="#">{{ category.getDisplayName }}</a>
     {% if children %}
         <ul class="sub-menu">
             {{ children | raw }}

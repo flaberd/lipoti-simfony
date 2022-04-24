@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Lipoti\Shop\Core\Handler;
+namespace Lipoti\Shop\Core\Widget\HeaderDropdownCategory;
 
-use Lipoti\Shop\Core\Entity\Category;
 use Lipoti\Shop\Core\Repository\CategoryRepository;
 use Twig\Environment;
 
-class CategoryHandler
+class HeaderDropdownCategoryHandler
 {
     private CategoryRepository $categoryRepo;
 
@@ -33,19 +32,10 @@ class CategoryHandler
         );
 
         foreach ($categories as $category) {
-            $result .= $this->twig->render('core/parts/category_nav_tree.html.twig', [
+            $result .= $this->twig->render('core/widget/header_dropdown_category/category_nav_tree.html.twig', [
                 'category' => $category,
                 'children' => $this->getTree($category->getId()),
             ]);
-//        var_dump($this->twig->render('core/parts/category_nav_tree.html.twig',[
-//            'category' => $category,
-//            'children' => $this->getTree($category->getId())
-//        ]));
-
-//            $result[$category->getId()] =[
-//                'category' => $category,
-//                'children' => $this->getTree($category->getId())
-//            ];
         }
 
         return $result;
