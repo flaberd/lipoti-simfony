@@ -16,3 +16,4 @@ header.login_block.logout: header.login_block.logout
 header.login_block.login: header.login_block.login
 header.login_block.or: header.login_block.or
 header.login_block.register: header.login_block.register
+header.category_menu.title: 'Browse category'

@@ -1,0 +1,10 @@
+<nav class="category-nav   ">
+    <div>
+        <a href="javascript:void(0)" class="category-trigger">
+            <i class="fa fa-bars"></i>
+            {% trans %}header.category_menu.title{% endtrans %}
+        </a>
+        <ul class="category-menu">
+            {{ tree | raw}}
+    </div>
+</nav>

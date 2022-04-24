@@ -1,0 +1,27 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Lipoti\Shop\Admin\Controller\:
+    resource: '../../src/Admin/Controller'
+    public: true
+
+  Lipoti\Shop\Admin\Manager\:
+    resource: '../../src/Admin/Manager'
+    public: true
+
+
+  Lipoti\Shop\Admin\Form\TranslationArrayNameKeyType:
+    arguments:
+      $locales: '%locales%'
+
+  Lipoti\Shop\Admin\Mapper\Catalog\CategoryEntityToCategoryEditDtoMapper: ~
+
+  Lipoti\Shop\Admin\Security\LoginFormAuthenticator: ~
+
+  Lipoti\Shop\Admin\Widget\SidebarMenu\SidebarMenuController: ~
+  Lipoti\Shop\Admin\Widget\SidebarMenu\SidebarMenuHandler: ~
+  # VendorName\ProjectName\Core\ServiceName: ~

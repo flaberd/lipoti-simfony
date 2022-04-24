@@ -1,0 +1,176 @@
+{% trans_default_domain 'admin' %}
+{% extends 'base_admin.html.twig' %}
+{% block body %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="_float-sm-right">{% trans %}catalog.category_list.page_title{% endtrans %}</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb _float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="{{ path('admin_dashboard') }}">
+                                {% trans %}sidebar_menu.dashboard{% endtrans %}
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active">{% trans %}catalog.category_list.page_title{% endtrans %}</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        {{ form_start(form, {'method': 'GET'}) }}
+                            <div class="card-header">
+                                <h3 class="card-title">{% trans %}catalog.category_list.filter_title{% endtrans %}</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body row">
+                                <div class="col-sm-6">
+                                    <div class="form-group ">
+                                        <label for="search">
+                                            {% trans %}catalog.category_list.filter_search_title{% endtrans %}
+                                        </label>
+                                        <div class="input-group">
+                                            {{ form_widget(form.query, {'attr': {'class': 'form-control'}}) }}
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fas fa-search"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="exampleSelectRounded0">
+                                            {% trans %}catalog.category_list.filter_status_title{% endtrans %}
+                                        </label>
+                                        {{ form_widget(form.status, {'attr': {'class': 'form-control'}}) }}
+{#                                        <select class="custom-select" id="exampleSelectRounded0">#}
+{#                                            <option>Value 1</option>#}
+{#                                            <option>Value 2</option>#}
+{#                                            <option>Value 3</option>#}
+{#                                        </select>#}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer" style="text-align: right;">
+                                {{ form_widget(form.submit, {
+                                    'attr': {
+                                        'class': 'btn btn-primary'
+                                    },
+                                    'label': 'catalog.category_list.filter_submit_btn' | trans
+                                }) }}
+                            </div>
+                        {{ form_end(form) }}
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5>{{ message }}</h5>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">{% trans %}catalog.category_list.lits_title{% endtrans %}</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>{% trans %}catalog.category_list.column_title_id{% endtrans %}</th>
+                                    <th>{% trans %}catalog.category_list.column_title_name{% endtrans %}</th>
+                                    <th>{% trans %}catalog.category_list.column_title_parent{% endtrans %}</th>
+                                    <th>{% trans %}catalog.category_list.column_title_status{% endtrans %}</th>
+                                    <th>{% trans %}catalog.category_list.column_title_action{% endtrans %}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if pagination.getTotalItemCount > 0 %}
+                                    {% for category in pagination %}
+                                        <tr>
+                                            <td>{{ category.id }}</td>
+                                            <td>{{ category.getTranslationByLocale(app.request.locale).getName }}</td>
+                                            <td>
+                                                {% set parent = category.getParent %}
+                                                {% if parent != NULL %}
+                                                    {{ parent.getTranslationByLocale(app.request.locale).getName }}
+                                                {% else %}
+                                                    {% trans %}catalog.category_list.column_value_no_parent{% endtrans %}
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if category.getStatus %}
+                                                    <span style="color: green">
+                                                        {% trans %}catalog.category_list.column_value_status_true{% endtrans %}
+                                                    </span>
+                                                {% else %}
+                                                    <span style="color: red">
+                                                        {% trans %}catalog.category_list.column_value_status_false{% endtrans %}
+                                                    </span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('admin_catalog_category_edit', {id: category.id}) }}" class="btn btn-info">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+{#                                        <fieldset>#}
+{#                                            <legend>#}
+{#                                                <a href="{{ path('post_post_show', {id: post.id}) }}">{{ post.getTitle }}</a>#}
+{#                                            </legend>#}
+{#                                            {% if(post.getThumbnail) %}#}
+{#                                                <div>#}
+{#                                                    <img width="150" src="{{ asset('files/img/' ~ post.getThumbnail) }}" alt="">#}
+{#                                                </div>#}
+{#                                            {% endif %}#}
+{#                                            <div>{{ post.getSummary }}</div>#}
+{#                                        </fieldset>#}
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="5">{% trans %}catalog.category_list.list_no_category{% endtrans %}</td>
+                                    </tr>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="row card-footer clearfix">
+                            <div class="col-sm-6">
+                                {{ knp_pagination_render(pagination,'@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig',) }}
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="float-sm-right">
+                                    {% trans %}catalog.category_list.count_title{% endtrans %} - {{ pagination.getTotalItemCount }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+{% endblock %}

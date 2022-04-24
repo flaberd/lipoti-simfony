@@ -1,0 +1,26 @@
+common.save_submit_btn: Зберегти
+sidebar_menu.catalog: Каталог
+sidebar_menu.category: Категорії
+sidebar_menu.dashboard: Панель
+sidebar_menu.logout: Вихід
+catalog.category_list.page_title: Категорії
+catalog.category_list.filter_title: 'Фільтр категорій'
+catalog.category_list.filter_submit_btn: Фільтрувати
+catalog.category_list.filter_search_title: Пошук
+catalog.category_list.filter_status_title: Статус
+catalog.category_list.lits_title: 'Список категорій'
+catalog.category_list.column_title_id: ID
+catalog.category_list.column_title_name: Назва
+catalog.category_list.column_title_parent: 'Батьківська категорія'
+catalog.category_list.column_title_status: Статус
+catalog.category_list.column_title_action: Дії
+catalog.category_list.column_value_no_parent: Нема
+catalog.category_list.list_no_category: 'Не знайдено жодної категорії'
+catalog.category_list.count_title: 'Всього категорій'
+catalog.category_list.column_value_status_true: Активно
+catalog.category_list.column_value_status_false: 'Не активно'
+catalog.category_edit.page_title: 'Редагування категорії'
+catalog.category_edit.field_status: Статус
+catalog.category_edit.field_name: Назва
+catalog.category_edit.field_parent: 'Батьківська категорія'
+catalog.category_list.edit_success: 'Категорію відредаговано'

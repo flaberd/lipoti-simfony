@@ -2,6 +2,7 @@ parameters:
     info_email: 'fabien@example.com'
     locales: ['uk', 'en']
     default_locale: 'uk'
+    kernel.secret: '%env(APP_SECRET)%'
 
 services:
     _defaults:

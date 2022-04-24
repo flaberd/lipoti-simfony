@@ -15,7 +15,8 @@ class CategoryLang
     use IdentifiableEntityTrait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Lipoti\Shop\Core\Entity\Category")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="translation")
+     * @ORM\JoinColumn(nullable=false)
      */
     private Category $category;
 
@@ -27,7 +28,7 @@ class CategoryLang
     /**
      * @ORM\Column(type="string", length=2)
      */
-    private string $lang;
+    private string $locale;
 
     public function getCategory(): Category
     {
@@ -49,13 +50,13 @@ class CategoryLang
         $this->name = $name;
     }
 
-    public function getLang(): string
+    public function getLocale(): string
     {
-        return $this->lang;
+        return $this->locale;
     }
 
-    public function setLang(string $lang): void
+    public function setLocale(string $locale): void
     {
-        $this->lang = $lang;
+        $this->locale = $locale;
     }
 }

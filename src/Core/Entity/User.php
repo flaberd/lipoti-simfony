@@ -57,7 +57,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private int $emaiConfirm = 0;
+    private int $emailConfirm = 0;
 
     /**
      * @param string[] $roles
@@ -164,12 +164,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getEmaiConfirm(): int
     {
-        return $this->emaiConfirm;
+        return $this->emailConfirm;
     }
 
-    public function setEmaiConfirm(int $emaiConfirm): void
+    public function setEmaiConfirm(int $emailConfirm): void
     {
-        $this->emaiConfirm = $emaiConfirm;
+        $this->emailConfirm = $emailConfirm;
     }
 
     /**
