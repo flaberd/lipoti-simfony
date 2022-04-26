@@ -19,7 +19,7 @@ class HeaderDropdownCategoryHandler
         $this->twig = $twig;
     }
 
-    public function getTree($parent_id = null)
+    public function getTree($parent_id = null): string
     {
         $result = '';
         $categories = $this->categoryRepo->findBy(

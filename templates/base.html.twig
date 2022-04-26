@@ -30,18 +30,18 @@
                             </ul>
                         </li>
                         <li class="dropdown-trigger language-dropdown">
-                            <a href="">
+                            <a href="" onclick="return false;">
                                 {{ app.request.locale|locale_name(app.request.locale) }}
                             </a>
                             <i class="fas fa-chevron-down dropdown-arrow"></i>
                             <ul class="dropdown-box">
                                 <li>
-                                    <a href="{{ path(app.request.attributes.get('_route'), {_locale: 'uk'}) }}">
+                                    <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({ _locale: 'uk' })) }}">
                                         {{ 'uk'|locale_name('uk') }}
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ path(app.request.attributes.get('_route'), {_locale: 'en'}) }}">
+                                    <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({ _locale: 'en' })) }}">
                                         {{ 'en'|locale_name('en') }}
                                     </a>
                                 </li>

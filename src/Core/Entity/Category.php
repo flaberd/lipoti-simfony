@@ -33,6 +33,11 @@ class Category
      */
     private Collection $translation;
 
+    /**
+     * @ORM\Column(type="string", nullable=false, unique=true)
+     */
+    private string $alias;
+
     public function getStatus(): int
     {
         return $this->status;
@@ -56,6 +61,16 @@ class Category
     public function getTranslation(): Collection
     {
         return $this->translation;
+    }
+
+    public function getAlias(): string
+    {
+        return $this->alias;
+    }
+
+    public function setAlias(string $alias): void
+    {
+        $this->alias = $alias;
     }
 
     public function getTranslationByLocale(string $locale): ?CategoryLang

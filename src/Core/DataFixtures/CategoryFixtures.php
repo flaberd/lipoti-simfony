@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Lipoti\Shop\Core\Entity\Category;
 use Lipoti\Shop\Core\Entity\CategoryLang;
+use Symfony\Component\String\ByteString;
 
 class CategoryFixtures extends Fixture
 {
@@ -27,6 +28,7 @@ class CategoryFixtures extends Fixture
         for ($i = 0; $i < 5; $i++) {
             $category = new Category();
             $category->setStatus(1);
+            $category->setAlias(ByteString::fromRandom(32)->toString());
             $this->addReference('category_parent_' . $i, $category);
             $this->em->persist($category);
 
@@ -43,6 +45,7 @@ class CategoryFixtures extends Fixture
             $category = new Category();
             $category->setParent($this->getReference('category_parent_' . random_int(0, 4)));
             $category->setStatus(1);
+            $category->setAlias(ByteString::fromRandom(32)->toString());
             $this->em->persist($category);
 
             foreach ($this->locales as $locale) {
