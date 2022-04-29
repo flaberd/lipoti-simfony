@@ -23,6 +23,7 @@ class CategoryRepository extends ServiceEntityRepository
             ->leftJoin('c.translation', 'cl')
             ->andWhere('cl.locale = :locale')
             ->setParameter('locale', $filter->getLocale())
+            ->orderBy('c.id', 'DESC');
 //            ->andWhere('p.status = :status')
 //            ->setParameter('status', Category::STATUS_PUBLISHED)
         ;

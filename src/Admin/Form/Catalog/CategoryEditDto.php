@@ -14,7 +14,7 @@ class CategoryEditDto
 
     private $translation;
 
-    private string $slug;
+    private ?string $slug = null;
 
     /**
      * @return bool|int
@@ -58,12 +58,12 @@ class CategoryEditDto
         $this->translation = $translation;
     }
 
-    public function getSlug(): string
+    public function getSlug(): ?string
     {
         return $this->slug;
     }
 
-    public function setSlug(string $slug): void
+    public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
     }
