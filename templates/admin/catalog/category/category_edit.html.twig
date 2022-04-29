@@ -47,6 +47,14 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="exampleSelectRounded0">
+                                            {% trans %}catalog.category_edit.field_alias{% endtrans %}
+                                        </label>
+                                        {{ form_row(form.slug, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="exampleSelectRounded0">
                                             {% trans %}catalog.category_edit.field_name{% endtrans %}
                                         </label>
                                         {% for key, item in form.translation %}

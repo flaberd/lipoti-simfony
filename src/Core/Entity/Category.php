@@ -36,7 +36,7 @@ class Category
     /**
      * @ORM\Column(type="string", nullable=false, unique=true)
      */
-    private string $alias;
+    private string $slug;
 
     public function getStatus(): int
     {
@@ -63,14 +63,14 @@ class Category
         return $this->translation;
     }
 
-    public function getAlias(): string
+    public function getSlug(): string
     {
-        return $this->alias;
+        return $this->slug;
     }
 
-    public function setAlias(string $alias): void
+    public function setSlug(string $slug): void
     {
-        $this->alias = $alias;
+        $this->slug = $slug;
     }
 
     public function getTranslationByLocale(string $locale): ?CategoryLang

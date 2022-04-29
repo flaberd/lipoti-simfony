@@ -11,6 +11,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class CategoryEditType extends AbstractType
@@ -35,6 +36,7 @@ class CategoryEditType extends AbstractType
                 'required' => false,
                 'placeholder' => 'noCategory',
             ])
+            ->add('slug', TextType::class)
             ->add('translation', TranslationArrayNameKeyType::class, [
                 'entry_type' => CategoryLangType::class,
             ])

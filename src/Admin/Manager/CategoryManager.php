@@ -9,6 +9,8 @@ use Lipoti\Shop\Admin\Form\Catalog\CategoryEditDto;
 use Lipoti\Shop\Admin\Form\Catalog\Translation\CategoryLangDto;
 use Lipoti\Shop\Core\Entity\Category;
 use Lipoti\Shop\Core\Repository\CategoryLangRepository;
+use Lipoti\Shop\Core\Repository\CategoryRepository;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class CategoryManager
 {
@@ -16,10 +18,16 @@ class CategoryManager
 
     private CategoryLangRepository $categoryLangRepo;
 
-    public function __construct(EntityManagerInterface $em, CategoryLangRepository $categoryLangRepo)
-    {
+    private CategoryRepository $categoryRepo;
+
+    public function __construct(
+        EntityManagerInterface $em,
+        CategoryLangRepository $categoryLangRepo,
+        CategoryRepository $categoryRepo
+    ) {
         $this->em = $em;
         $this->categoryLangRepo = $categoryLangRepo;
+        $this->categoryRepo = $categoryRepo;
     }
 
     public function update(CategoryEditDto $dto, Category $category): void
@@ -32,7 +40,28 @@ class CategoryManager
         }
         $category->setStatus($dto->getStatus());
         $category->setParent($dto->getParent());
+
+        if ($category->getSlug() !== $dto->getSlug()) {
+            $slugger = new AsciiSlugger();
+            $slug = $slugger->slug($dto->getSlug())->toString();
+
+            $duplicateSlugs = $this->categoryRepo->findBySlug($slug);
+            if (!empty($duplicateSlugs)) {
+                $slugSufix = [];
+                foreach ($duplicateSlugs as $duplicateSlug) {
+                    $slugSufix[] = (int) str_replace([$slug, '_'], '', $duplicateSlug->getSlug());
+                }
+                $slug .= '_' . (max($slugSufix) + 1);
+            }
+
+            $category->setSlug($slug);
+        }
         $this->em->persist($category);
         $this->em->flush();
+    }
+
+    private function countDuplicateSlug(string $slug): int
+    {
+        return $this->categoryRepo->findBySlug($slug);
     }
 }
