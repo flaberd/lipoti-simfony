@@ -89,7 +89,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">{% trans %}catalog.category_list.lits_title{% endtrans %}</h3>
+                            <h3 class="card-title">
+                                {% trans %}catalog.category_list.lits_title{% endtrans %}
+                            </h3>
+                            <div class="card-tools">
+                                <a href="{{ path('admin_catalog_category_create') }}" class="btn btn-block btn-primary">
+                                    {% trans %}catalog.category_list.create_btn{% endtrans %}
+                                </a>
+                            </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">

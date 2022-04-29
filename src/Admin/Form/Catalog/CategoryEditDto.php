@@ -14,6 +14,8 @@ class CategoryEditDto
 
     private $translation;
 
+    private ?string $slug = null;
+
     /**
      * @return bool|int
      */
@@ -54,5 +56,15 @@ class CategoryEditDto
     public function setTranslation($translation): void
     {
         $this->translation = $translation;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): void
+    {
+        $this->slug = $slug;
     }
 }

@@ -2,6 +2,10 @@ admin_catalog_category_list:
   path: /admin/category-list
   controller: Lipoti\Shop\Admin\Controller\Catalog\Category\CategoryListController
 
+admin_catalog_category_create:
+  path: /admin/category-create
+  controller: Lipoti\Shop\Admin\Controller\Catalog\Category\CategoryCreateController
+
 admin_catalog_category_edit:
   path: /admin/category-edit/{id}
   controller: Lipoti\Shop\Admin\Controller\Catalog\Category\CategoryEditController

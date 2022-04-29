@@ -30,18 +30,18 @@
                             </ul>
                         </li>
                         <li class="dropdown-trigger language-dropdown">
-                            <a href="">
+                            <a href="" onclick="return false;">
                                 {{ app.request.locale|locale_name(app.request.locale) }}
                             </a>
                             <i class="fas fa-chevron-down dropdown-arrow"></i>
                             <ul class="dropdown-box">
                                 <li>
-                                    <a href="{{ path(app.request.attributes.get('_route'), {_locale: 'uk'}) }}">
+                                    <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({ _locale: 'uk' })) }}">
                                         {{ 'uk'|locale_name('uk') }}
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ path(app.request.attributes.get('_route'), {_locale: 'en'}) }}">
+                                    <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({ _locale: 'en' })) }}">
                                         {{ 'en'|locale_name('en') }}
                                     </a>
                                 </li>
@@ -163,7 +163,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="cat_nav col-lg-3">
-                        {{ render(controller('Lipoti\\Shop\\Core\\Controller\\Parts\\CategoryNavController')) }}
+                        {{ render(controller('Lipoti\\Shop\\Core\\Widget\\HeaderDropdownCategory\\HeaderDropdownCategoryController')) }}
                     </div>
                     <div class="col-lg-3">
                         <div class="header-phone ">
@@ -310,7 +310,7 @@
                         </a>
                     </div>
                     <div class="cat_nav col-md-5 order-3 order-md-2">
-                        {{ render(controller('Lipoti\\Shop\\Core\\Controller\\Parts\\CategoryNavController')) }}
+                        {{ render(controller('Lipoti\\Shop\\Core\\Widget\\HeaderDropdownCategory\\HeaderDropdownCategoryController')) }}
                     </div>
                     <div class="col-md-3 col-5  order-md-3 text-right">
                         <div class="mobile-header-btns header-top-widget">

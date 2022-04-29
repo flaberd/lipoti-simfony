@@ -33,6 +33,11 @@ class Category
      */
     private Collection $translation;
 
+    /**
+     * @ORM\Column(type="string", nullable=false, unique=true)
+     */
+    private string $slug;
+
     public function getStatus(): int
     {
         return $this->status;
@@ -56,6 +61,16 @@ class Category
     public function getTranslation(): Collection
     {
         return $this->translation;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
     }
 
     public function getTranslationByLocale(string $locale): ?CategoryLang

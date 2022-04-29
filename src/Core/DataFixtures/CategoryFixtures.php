@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Lipoti\Shop\Core\Entity\Category;
 use Lipoti\Shop\Core\Entity\CategoryLang;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class CategoryFixtures extends Fixture
 {
@@ -24,9 +25,12 @@ class CategoryFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
+        $slugger = new AsciiSlugger();
         for ($i = 0; $i < 5; $i++) {
             $category = new Category();
             $category->setStatus(1);
+            $slug = $slugger->slug('_category_' . $i)->toString();
+            $category->setSlug($slug);
             $this->addReference('category_parent_' . $i, $category);
             $this->em->persist($category);
 
@@ -43,6 +47,8 @@ class CategoryFixtures extends Fixture
             $category = new Category();
             $category->setParent($this->getReference('category_parent_' . random_int(0, 4)));
             $category->setStatus(1);
+            $slug = $slugger->slug('_sub_category_' . $i)->toString();
+            $category->setSlug($slug);
             $this->em->persist($category);
 
             foreach ($this->locales as $locale) {

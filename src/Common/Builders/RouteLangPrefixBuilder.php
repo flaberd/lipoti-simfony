@@ -7,7 +7,7 @@ namespace Lipoti\Shop\Common\Builders;
 class RouteLangPrefixBuilder
 {
     private const LANG_PREFIX = [
-        'uk' => '',
+        'uk' => '/',
         'en' => '/{_locale}',
     ];
 

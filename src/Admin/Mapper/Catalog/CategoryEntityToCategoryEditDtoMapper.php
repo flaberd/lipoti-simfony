@@ -18,6 +18,7 @@ class CategoryEntityToCategoryEditDtoMapper
 
         $target->setStatus($source->getStatus());
         $target->setParent($source->getParent());
+        $target->setSlug($source->getSlug());
 
         $translations = $source->getTranslation();
         $tr = [];

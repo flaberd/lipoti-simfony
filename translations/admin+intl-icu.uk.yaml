@@ -24,3 +24,6 @@ catalog.category_edit.field_status: Статус
 catalog.category_edit.field_name: Назва
 catalog.category_edit.field_parent: 'Батьківська категорія'
 catalog.category_list.edit_success: 'Категорію відредаговано'
+catalog.category_create.page_title: 'Додавання категорії'
+catalog.category_list.create_btn: Додати категорію
+catalog.category_edit.field_slug: ЧПУ
