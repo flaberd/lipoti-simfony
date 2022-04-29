@@ -32,7 +32,7 @@ return function (RoutingConfigurator $routes) {
         ->controller(RegistrationSuccessController::class)
     ;
 
-    $routes->add('category_category', RouteLangPrefixBuilder::routeBuild('/shop/{alias}'))
+    $routes->add('category_category', RouteLangPrefixBuilder::routeBuild('/shop/{slug}'))
         ->controller(CategoryController::class)
     ;
 };

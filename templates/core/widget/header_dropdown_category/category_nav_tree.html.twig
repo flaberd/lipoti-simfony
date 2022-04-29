@@ -1,5 +1,5 @@
 <li class="{% if children %}cat-item has-children{% endif %}">
-    <a href="{{ path('category_category', {alias: category.alias}) }}">
+    <a href="{{ path('category_category', {slug: category.slug}) }}">
         {{ category.getDisplayName }}
     </a>
     {% if children %}
