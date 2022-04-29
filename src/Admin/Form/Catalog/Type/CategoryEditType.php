@@ -36,7 +36,7 @@ class CategoryEditType extends AbstractType
                 'required' => false,
                 'placeholder' => 'noCategory',
             ])
-            ->add('slug', TextType::class,[
+            ->add('slug', TextType::class, [
                 'required' => false,
             ])
             ->add('translation', TranslationArrayNameKeyType::class, [
