@@ -28,12 +28,12 @@ class UserToken
     private User $user;
 
     /**
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string", unique=true, length=255)
      */
     private string $hash;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
     private string $type;
 

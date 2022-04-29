@@ -34,7 +34,7 @@ class Category
     private Collection $translation;
 
     /**
-     * @ORM\Column(type="string", nullable=false, unique=true)
+     * @ORM\Column(type="string", nullable=false, unique=true, length=255)
      */
     private string $slug;
 

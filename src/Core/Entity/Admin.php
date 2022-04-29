@@ -29,7 +29,7 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @var string The hashed password
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
     private string $password;
 
