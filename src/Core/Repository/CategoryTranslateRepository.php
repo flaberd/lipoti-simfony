@@ -7,16 +7,16 @@ namespace Lipoti\Shop\Core\Repository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Lipoti\Shop\Core\Entity\Category;
-use Lipoti\Shop\Core\Entity\CategoryLang;
+use Lipoti\Shop\Core\Entity\CategoryTranslate;
 
-class CategoryLangRepository extends ServiceEntityRepository
+class CategoryTranslateRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CategoryLang::class);
+        parent::__construct($registry, CategoryTranslate::class);
     }
 
-    public function findByLocaleAndCategory(string $locale, Category $category): ?CategoryLang
+    public function findByLocaleAndCategory(string $locale, Category $category): ?CategoryTranslate
     {
         return $this->findOneBy(['locale' => $locale, 'category' => $category]);
     }

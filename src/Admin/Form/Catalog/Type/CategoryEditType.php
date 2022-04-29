@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Lipoti\Shop\Admin\Form\Catalog\Type;
 
-use Lipoti\Shop\Admin\Form\Catalog\Translation\Type\CategoryLangType;
+use Lipoti\Shop\Admin\Form\Catalog\Translation\Type\CategoryTranslateType;
 use Lipoti\Shop\Admin\Form\TranslationArrayNameKeyType;
 use Lipoti\Shop\Core\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -40,7 +40,7 @@ class CategoryEditType extends AbstractType
                 'required' => false,
             ])
             ->add('translation', TranslationArrayNameKeyType::class, [
-                'entry_type' => CategoryLangType::class,
+                'entry_type' => CategoryTranslateType::class,
             ])
             ->add('submit', SubmitType::class)
         ;

@@ -10,7 +10,7 @@ use Lipoti\Shop\Common\Entity\Traits\IdentifiableEntityTrait;
 /**
  * @ORM\Entity
  */
-class CategoryLang
+class CategoryTranslate
 {
     use IdentifiableEntityTrait;
 

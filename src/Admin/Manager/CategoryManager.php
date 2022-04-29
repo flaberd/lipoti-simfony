@@ -6,10 +6,10 @@ namespace Lipoti\Shop\Admin\Manager;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Lipoti\Shop\Admin\Form\Catalog\CategoryEditDto;
-use Lipoti\Shop\Admin\Form\Catalog\Translation\CategoryLangDto;
+use Lipoti\Shop\Admin\Form\Catalog\Translation\CategoryTranslateDto;
 use Lipoti\Shop\Core\Entity\Category;
-use Lipoti\Shop\Core\Entity\CategoryLang;
-use Lipoti\Shop\Core\Repository\CategoryLangRepository;
+use Lipoti\Shop\Core\Entity\CategoryTranslate;
+use Lipoti\Shop\Core\Repository\CategoryTranslateRepository;
 use Lipoti\Shop\Core\Repository\CategoryRepository;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
@@ -17,17 +17,17 @@ class CategoryManager
 {
     private EntityManagerInterface $em;
 
-    private CategoryLangRepository $categoryLangRepo;
+    private CategoryTranslateRepository $categoryTranslateRepo;
 
     private CategoryRepository $categoryRepo;
 
     public function __construct(
         EntityManagerInterface $em,
-        CategoryLangRepository $categoryLangRepo,
+        CategoryTranslateRepository $categoryTranslateRepo,
         CategoryRepository $categoryRepo
     ) {
         $this->em = $em;
-        $this->categoryLangRepo = $categoryLangRepo;
+        $this->categoryTranslateRepo = $categoryTranslateRepo;
         $this->categoryRepo = $categoryRepo;
     }
 
@@ -53,13 +53,13 @@ class CategoryManager
 
         $this->em->persist($category);
 
-        /** @var CategoryLangDto $translate */
+        /** @var CategoryTranslateDto $translate */
         foreach ($translation as $langKey => $translate) {
-            $categoryLang = new CategoryLang();
-            $categoryLang->setLocale($langKey);
-            $categoryLang->setCategory($category);
-            $categoryLang->setName($translate->getName());
-            $this->em->persist($categoryLang);
+            $categoryTranslate = new CategoryTranslate();
+            $categoryTranslate->setLocale($langKey);
+            $categoryTranslate->setCategory($category);
+            $categoryTranslate->setName($translate->getName());
+            $this->em->persist($categoryTranslate);
         }
 
         $this->em->flush();
@@ -68,11 +68,11 @@ class CategoryManager
     public function update(CategoryEditDto $dto, Category $category): void
     {
         $translation = $dto->getTranslation();
-        /** @var CategoryLangDto $translate */
+        /** @var CategoryTranslateDto $translate */
         foreach ($translation as $langKey => $translate) {
-            $categoryLang = $this->categoryLangRepo->findByLocaleAndCategory($langKey, $category);
-            $categoryLang->setName($translate->getName());
-            $this->em->persist($categoryLang);
+            $categoryTranslate = $this->categoryTranslateRepo->findByLocaleAndCategory($langKey, $category);
+            $categoryTranslate->setName($translate->getName());
+            $this->em->persist($categoryTranslate);
         }
         $category->setStatus($dto->getStatus());
         $category->setParent($dto->getParent());
