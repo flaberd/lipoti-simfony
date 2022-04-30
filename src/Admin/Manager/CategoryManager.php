@@ -9,8 +9,8 @@ use Lipoti\Shop\Admin\Form\Catalog\CategoryEditDto;
 use Lipoti\Shop\Admin\Form\Catalog\Translation\CategoryTranslateDto;
 use Lipoti\Shop\Core\Entity\Category;
 use Lipoti\Shop\Core\Entity\CategoryTranslate;
-use Lipoti\Shop\Core\Repository\CategoryTranslateRepository;
 use Lipoti\Shop\Core\Repository\CategoryRepository;
+use Lipoti\Shop\Core\Repository\CategoryTranslateRepository;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class CategoryManager
