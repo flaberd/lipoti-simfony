@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Lipoti\Shop\Admin\Mapper\Catalog;
 
 use Lipoti\Shop\Admin\Form\Catalog\CategoryEditDto;
-use Lipoti\Shop\Admin\Form\Catalog\Translation\CategoryLangDto;
+use Lipoti\Shop\Admin\Form\Catalog\Translation\CategoryTranslateDto;
 use Lipoti\Shop\Core\Entity\Category;
 
 class CategoryEntityToCategoryEditDtoMapper
@@ -23,9 +23,9 @@ class CategoryEntityToCategoryEditDtoMapper
         $translations = $source->getTranslation();
         $tr = [];
         foreach ($translations as $translation) {
-            $categoryLangDto = new CategoryLangDto();
-            $categoryLangDto->setName($translation->getName());
-            $tr[$translation->getLocale()] = $categoryLangDto;
+            $categoryTranslateDto = new CategoryTranslateDto();
+            $categoryTranslateDto->setName($translation->getName());
+            $tr[$translation->getLocale()] = $categoryTranslateDto;
         }
         $target->setTranslation($tr);
 

@@ -6,7 +6,7 @@ namespace Lipoti\Shop\Admin\Form\Catalog\Translation;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class CategoryLangDto
+class CategoryTranslateDto
 {
     /**
      * @Assert\NotBlank

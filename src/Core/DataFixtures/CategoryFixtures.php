@@ -8,7 +8,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Lipoti\Shop\Core\Entity\Category;
-use Lipoti\Shop\Core\Entity\CategoryLang;
+use Lipoti\Shop\Core\Entity\CategoryTranslate;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class CategoryFixtures extends Fixture
@@ -35,11 +35,11 @@ class CategoryFixtures extends Fixture
             $this->em->persist($category);
 
             foreach ($this->locales as $locale) {
-                $categoryLang = new CategoryLang();
-                $categoryLang->setName($locale . '_category_' . $i);
-                $categoryLang->setLocale($locale);
-                $categoryLang->setCategory($category);
-                $this->em->persist($categoryLang);
+                $categoryTranslate = new CategoryTranslate();
+                $categoryTranslate->setName($locale . '_category_' . $i);
+                $categoryTranslate->setLocale($locale);
+                $categoryTranslate->setCategory($category);
+                $this->em->persist($categoryTranslate);
             }
         }
 
@@ -52,11 +52,11 @@ class CategoryFixtures extends Fixture
             $this->em->persist($category);
 
             foreach ($this->locales as $locale) {
-                $categoryLang = new CategoryLang();
-                $categoryLang->setName($locale . '_sub_category_' . $i);
-                $categoryLang->setLocale($locale);
-                $categoryLang->setCategory($category);
-                $this->em->persist($categoryLang);
+                $categoryTranslate = new CategoryTranslate();
+                $categoryTranslate->setName($locale . '_sub_category_' . $i);
+                $categoryTranslate->setLocale($locale);
+                $categoryTranslate->setCategory($category);
+                $this->em->persist($categoryTranslate);
             }
         }
 

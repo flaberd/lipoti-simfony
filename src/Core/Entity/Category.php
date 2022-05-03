@@ -29,7 +29,7 @@ class Category
     private ?Category $parent = null;
 
     /**
-     * @ORM\OneToMany(targetEntity=CategoryLang::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=CategoryTranslate::class, mappedBy="category")
      */
     private Collection $translation;
 
@@ -73,7 +73,7 @@ class Category
         $this->slug = $slug;
     }
 
-    public function getTranslationByLocale(string $locale): ?CategoryLang
+    public function getTranslationByLocale(string $locale): ?CategoryTranslate
     {
         $criteria = Criteria::create()->where(Criteria::expr()->eq('locale', $locale));
 
