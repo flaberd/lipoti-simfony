@@ -9,3 +9,15 @@ admin_catalog_category_create:
 admin_catalog_category_edit:
   path: /admin/category-edit/{id}
   controller: Lipoti\Shop\Admin\Controller\Catalog\Category\CategoryEditController
+
+admin_catalog_product_list:
+  path: /admin/product-list
+  controller: Lipoti\Shop\Admin\Controller\Catalog\Product\ProductListController
+
+admin_catalog_product_create:
+  path: /admin/product-create
+  controller: Lipoti\Shop\Admin\Controller\Catalog\Product\ProductCreateController
+
+admin_catalog_product_edit:
+  path: /admin/product-edit
+  controller: Lipoti\Shop\Admin\Controller\Catalog\Product\ProductEditController

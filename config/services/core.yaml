@@ -16,6 +16,10 @@ services:
     arguments:
       $locales: '%locales%'
 
+  Lipoti\Shop\Core\DataFixtures\ProductFixtures:
+    arguments:
+      $locales: '%locales%'
+
   Lipoti\Shop\Core\Repository\:
     resource: '../../src/Core/Repository'
 
