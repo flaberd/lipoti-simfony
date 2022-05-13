@@ -17,3 +17,11 @@ header.login_block.login: Увійдіть
 header.login_block.or: або
 header.login_block.register: Зареєструйтеся
 header.category_menu.title: Категорії
+input.default: __input.default
+button.save: __button.save
+folder.add.success: __folder.add.success
+folder.add.danger: __folder.add.danger
+file.renamed.unauthorized: __file.renamed.unauthorized
+file.renamed.success: __file.renamed.success
+file.renamed.danger: __file.renamed.danger
+file.renamed.nochanged: __file.renamed.nochanged

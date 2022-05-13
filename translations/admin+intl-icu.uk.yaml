@@ -44,8 +44,8 @@ catalog.product_list.column_value_status_true: Активно
 catalog.product_list.column_value_status_false: 'Не активно'
 catalog.product_list.list_no_product: 'Товари відсутні'
 catalog.product_list.count_title: 'Всього товарів'
-catalog.product_list.edit_success: Товар відредаговано
-catalog.product_edit.page_title: Редагування товару
+catalog.product_list.edit_success: 'Товар відредаговано'
+catalog.product_edit.page_title: 'Редагування товару'
 catalog.product_edit.field_status: Статус
 catalog.product_edit.field_category: Категорія
 catalog.product_edit.field_slug: ЧПУ

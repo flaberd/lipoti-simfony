@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Lipoti\Shop\Admin\Form\Catalog\Translation\Type;
 
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Lipoti\Shop\Admin\Form\Catalog\Translation\ProductTranslateDto;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -16,7 +17,12 @@ class ProductTranslateType extends AbstractType
     {
         $builder
             ->add('name', TextType::class)
-            ->add('description', TextType::class)
+            ->add('description', CKEditorType::class, [
+//                'config' => [
+//                    'toolbar' => 'full'
+//                ],
+                'config_name' => 'basic_config',
+            ])
         ;
     }
 
