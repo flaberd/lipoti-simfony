@@ -7,6 +7,7 @@ namespace Lipoti\Shop\Admin\Mapper\Catalog;
 use Lipoti\Shop\Admin\Form\Catalog\CategoryEditDto;
 use Lipoti\Shop\Admin\Form\Catalog\Translation\CategoryTranslateDto;
 use Lipoti\Shop\Core\Entity\Category;
+use Lipoti\Shop\Core\Entity\CategoryTranslate;
 
 class CategoryEntityToCategoryEditDtoMapper
 {
@@ -22,6 +23,7 @@ class CategoryEntityToCategoryEditDtoMapper
 
         $translations = $source->getTranslation();
         $tr = [];
+        /** @var CategoryTranslate $translation */
         foreach ($translations as $translation) {
             $categoryTranslateDto = new CategoryTranslateDto();
             $categoryTranslateDto->setName($translation->getName());

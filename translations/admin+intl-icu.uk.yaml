@@ -29,18 +29,25 @@ catalog.category_create.page_title: 'Додавання категорії'
 catalog.category_list.create_btn: 'Додати категорію'
 catalog.category_edit.field_slug: ЧПУ
 catalog.product_list.page_title: Товари
-catalog.product_list.filter_title: Фільтр товарів
-catalog.product_list.filter_name_title: Назва товару
+catalog.product_list.filter_title: 'Фільтр товарів'
+catalog.product_list.filter_name_title: 'Назва товару'
 catalog.product_list.filter_submit_btn: Пошук
-catalog.product_list.lits_title: Список товарів
-catalog.product_list.create_btn: Додати товар
+catalog.product_list.lits_title: 'Список товарів'
+catalog.product_list.create_btn: 'Додати товар'
 catalog.product_list.column_title_id: ID
 catalog.product_list.column_title_name: Назва
 catalog.product_list.column_title_category: Категорія
 catalog.product_list.column_title_status: Статус
 catalog.product_list.column_title_action: Дії
-catalog.product_list.column_value_no_category: Без категорії
+catalog.product_list.column_value_no_category: 'Без категорії'
 catalog.product_list.column_value_status_true: Активно
-catalog.product_list.column_value_status_false: Не активно
-catalog.product_list.list_no_product: Товари відсутні
-catalog.product_list.count_title: Всього товарів
+catalog.product_list.column_value_status_false: 'Не активно'
+catalog.product_list.list_no_product: 'Товари відсутні'
+catalog.product_list.count_title: 'Всього товарів'
+catalog.product_list.edit_success: Товар відредаговано
+catalog.product_edit.page_title: Редагування товару
+catalog.product_edit.field_status: Статус
+catalog.product_edit.field_category: Категорія
+catalog.product_edit.field_slug: ЧПУ
+catalog.product_edit.field_name: Назва
+catalog.product_edit.field_description: Опис

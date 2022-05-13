@@ -43,4 +43,14 @@ class ProductRepository extends ServiceEntityRepository
 
         return $category->getQuery();
     }
+
+    public function findBySlug(string $slug)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.slug LIKE :slug')
+            ->setParameter('slug', $slug . '%')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

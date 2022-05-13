@@ -44,14 +44,14 @@ class CategoryEditController extends AbstractController
 
             $this->addFlash('success', $this->translator->trans('catalog.category_list.edit_success', [], 'admin'));
 
-            $urlGoBack = $session->get('urlGoBack');
+            $urlGoBack = $session->get('urlGoBackCategory');
             if ($urlGoBack && $urlGoBack !== $request->getUri()) {
                 return $this->redirect($urlGoBack);
             }
 
             return $this->redirectToRoute('admin_catalog_category_list');
         }
-        $session->set('urlGoBack', $request->headers->get('referer'));
+        $session->set('urlGoBackCategory', $request->headers->get('referer'));
 
         return $this->render('admin/catalog/category/category_edit.html.twig', [
             'form' => $form->createView(),

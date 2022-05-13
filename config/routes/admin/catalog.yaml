@@ -19,5 +19,5 @@ admin_catalog_product_create:
   controller: Lipoti\Shop\Admin\Controller\Catalog\Product\ProductCreateController
 
 admin_catalog_product_edit:
-  path: /admin/product-edit
+  path: /admin/product-edit/{id}
   controller: Lipoti\Shop\Admin\Controller\Catalog\Product\ProductEditController

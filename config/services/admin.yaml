@@ -19,6 +19,7 @@ services:
       $locales: '%locales%'
 
   Lipoti\Shop\Admin\Mapper\Catalog\CategoryEntityToCategoryEditDtoMapper: ~
+  Lipoti\Shop\Admin\Mapper\Catalog\ProductEntityToProductEditDtoMapper: ~
 
   Lipoti\Shop\Admin\Security\LoginFormAuthenticator: ~
 
