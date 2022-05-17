@@ -8,3 +8,7 @@ services:
   Lipoti\Shop\Category\Controller\:
     resource: '../../src/Category/Controller'
     public: true
+
+  Lipoti\Shop\Category\Repository\:
+    resource: '../../src/Category/Repository'
+    public: true

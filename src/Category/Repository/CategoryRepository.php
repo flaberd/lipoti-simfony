@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Lipoti\Shop\Core\Repository;
+namespace Lipoti\Shop\Category\Repository;
 
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

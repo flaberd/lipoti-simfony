@@ -7,9 +7,9 @@ namespace Lipoti\Shop\Admin\Manager;
 use Doctrine\ORM\EntityManagerInterface;
 use Lipoti\Shop\Admin\Form\Catalog\ProductEditDto;
 use Lipoti\Shop\Admin\Form\Catalog\Translation\ProductTranslateDto;
+use Lipoti\Shop\Admin\Repository\ProductRepository;
+use Lipoti\Shop\Admin\Repository\ProductTranslateRepository;
 use Lipoti\Shop\Core\Entity\Product;
-use Lipoti\Shop\Core\Repository\ProductRepository;
-use Lipoti\Shop\Core\Repository\ProductTranslateRepository;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class ProductManager
