@@ -8,7 +8,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Lipoti\Shop\Admin\Filter\Catalog\CategoryListFilter;
 use Lipoti\Shop\Admin\Form\Catalog\SearchCategoryDto;
 use Lipoti\Shop\Admin\Form\Catalog\Type\SearchCategoryType;
-use Lipoti\Shop\Core\Repository\CategoryRepository;
+use Lipoti\Shop\Admin\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

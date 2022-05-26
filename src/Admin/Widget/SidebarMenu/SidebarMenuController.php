@@ -37,9 +37,21 @@ class SidebarMenuController extends AbstractController
         $category->setIndicatorPath([
             'admin_catalog_category_list',
             'admin_catalog_category_edit',
+            'admin_catalog_category_create',
         ]);
         $category->setActive(\in_array($path, $category->getIndicatorPath(), true));
         $catalogChildren[] = $category;
+
+        $product = new SidebarMenuItem();
+        $product->setName($this->translator->trans('sidebar_menu.product', [], 'admin'));
+        $product->setPath('admin_catalog_product_list');
+        $product->setIndicatorPath([
+            'admin_catalog_product_list',
+            'admin_catalog_product_edit',
+            'admin_catalog_product_create',
+        ]);
+        $product->setActive(\in_array($path, $product->getIndicatorPath(), true));
+        $catalogChildren[] = $product;
 
         $catalog = new SidebarMenuItem();
         $catalog->setName($this->translator->trans('sidebar_menu.catalog', [], 'admin'));

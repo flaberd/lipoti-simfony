@@ -19,6 +19,11 @@ services:
       $locales: '%locales%'
 
   Lipoti\Shop\Admin\Mapper\Catalog\CategoryEntityToCategoryEditDtoMapper: ~
+  Lipoti\Shop\Admin\Mapper\Catalog\ProductEntityToProductEditDtoMapper: ~
+
+  Lipoti\Shop\Admin\Repository\:
+    resource: '../../src/Admin/Repository'
+    public: true
 
   Lipoti\Shop\Admin\Security\LoginFormAuthenticator: ~
 

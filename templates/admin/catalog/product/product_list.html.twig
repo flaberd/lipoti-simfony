@@ -1,0 +1,180 @@
+{% trans_default_domain 'admin' %}
+{% extends 'base_admin.html.twig' %}
+{% block body %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="_float-sm-right">{% trans %}catalog.product_list.page_title{% endtrans %}</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb _float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="{{ path('admin_dashboard') }}">
+                                {% trans %}breadcrumbs.dashboard{% endtrans %}
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            {% trans %}breadcrumbs.product_list{% endtrans %}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        {{ form_start(form, {'method': 'GET'}) }}
+                        <div class="card-header">
+                            <h3 class="card-title">{% trans %}catalog.product_list.filter_title{% endtrans %}</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body row">
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <label for="search">
+                                        {% trans %}catalog.product_list.filter_name_title{% endtrans %}
+                                    </label>
+                                    <div class="input-group">
+                                        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                                        <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fas fa-search"></i>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+{#                            <div class="col-sm-6">#}
+{#                                <div class="form-group">#}
+{#                                    <label for="exampleSelectRounded0">#}
+{#                                        {% trans %}catalog.product_list.filter_status_title{% endtrans %}#}
+{#                                    </label>#}
+{#                                    {{ form_widget(form.status, {'attr': {'class': 'form-control'}}) }}#}
+{#                                </div>#}
+{#                            </div>#}
+                        </div>
+                        <div class="card-footer" style="text-align: right;">
+                            {{ form_widget(form.submit, {
+                                'attr': {
+                                    'class': 'btn btn-primary'
+                                },
+                                'label': 'catalog.product_list.filter_submit_btn' | trans
+                            }) }}
+                        </div>
+                        {{ form_end(form) }}
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5>{{ message }}</h5>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                {% trans %}catalog.product_list.lits_title{% endtrans %}
+                            </h3>
+                            <div class="card-tools">
+                                <a href="{{ path('admin_catalog_product_create') }}" class="btn btn-block btn-primary">
+                                    {% trans %}catalog.product_list.create_btn{% endtrans %}
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>{% trans %}catalog.product_list.column_title_id{% endtrans %}</th>
+                                    <th>{% trans %}catalog.product_list.column_title_name{% endtrans %}</th>
+                                    <th>{% trans %}catalog.product_list.column_title_category{% endtrans %}</th>
+                                    <th>{% trans %}catalog.product_list.column_title_status{% endtrans %}</th>
+                                    <th>{% trans %}catalog.product_list.column_title_action{% endtrans %}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if pagination.getTotalItemCount > 0 %}
+                                    {% for product in pagination %}
+                                        <tr>
+                                            <td>{{ product.id }}</td>
+                                            <td>{{ product.getTranslationByLocale(app.request.locale).getName }}</td>
+                                            <td>
+                                                {% set category = product.getCategory %}
+                                                {% if category != NULL %}
+                                                    {{ category.getTranslationByLocale(app.request.locale).getName }}
+                                                {% else %}
+                                                    {% trans %}catalog.product_list.column_value_no_category{% endtrans %}
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if product.getStatus %}
+                                                    <span style="color: green">
+                                                        {% trans %}catalog.product_list.column_value_status_true{% endtrans %}
+                                                    </span>
+                                                {% else %}
+                                                    <span style="color: red">
+                                                        {% trans %}catalog.product_list.column_value_status_false{% endtrans %}
+                                                    </span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('admin_catalog_product_edit', {id: product.id}) }}" class="btn btn-info">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {#                                        <fieldset>#}
+                                        {#                                            <legend>#}
+                                        {#                                                <a href="{{ path('post_post_show', {id: post.id}) }}">{{ post.getTitle }}</a>#}
+                                        {#                                            </legend>#}
+                                        {#                                            {% if(post.getThumbnail) %}#}
+                                        {#                                                <div>#}
+                                        {#                                                    <img width="150" src="{{ asset('files/img/' ~ post.getThumbnail) }}" alt="">#}
+                                        {#                                                </div>#}
+                                        {#                                            {% endif %}#}
+                                        {#                                            <div>{{ post.getSummary }}</div>#}
+                                        {#                                        </fieldset>#}
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="5">{% trans %}catalog.product_list.list_no_product{% endtrans %}</td>
+                                    </tr>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="row card-footer clearfix">
+                            <div class="col-sm-6">
+                                {{ knp_pagination_render(pagination,'@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig',) }}
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="float-sm-right">
+                                    {% trans %}catalog.product_list.count_title{% endtrans %} - {{ pagination.getTotalItemCount }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+{% endblock %}

@@ -118,6 +118,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-menu" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-paginator-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-components" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/artgris/filemanager-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/oomphinc/composer-installers-extender" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-messageformatter" />
     </content>
     <orderEntry type="inheritedJdk" />

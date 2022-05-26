@@ -6,12 +6,12 @@ namespace Lipoti\Shop\Core\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Lipoti\Shop\Core\Entity\Category;
+use Lipoti\Shop\Core\Entity\Product;
 
-class CategoryRepository extends ServiceEntityRepository
+class ProductRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Category::class);
+        parent::__construct($registry, Product::class);
     }
 }

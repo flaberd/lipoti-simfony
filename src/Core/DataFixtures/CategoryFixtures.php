@@ -47,6 +47,7 @@ class CategoryFixtures extends Fixture
             $category = new Category();
             $category->setParent($this->getReference('category_parent_' . random_int(0, 4)));
             $category->setStatus(1);
+            $this->addReference('sub_category_parent_' . $i, $category);
             $slug = $slugger->slug('_sub_category_' . $i)->toString();
             $category->setSlug($slug);
             $this->em->persist($category);
