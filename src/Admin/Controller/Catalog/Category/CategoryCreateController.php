@@ -7,7 +7,6 @@ namespace Lipoti\Shop\Admin\Controller\Catalog\Category;
 use Lipoti\Shop\Admin\Form\Catalog\CategoryEditDto;
 use Lipoti\Shop\Admin\Form\Catalog\Type\CategoryEditType;
 use Lipoti\Shop\Admin\Manager\CategoryManager;
-use Lipoti\Shop\Admin\Mapper\Catalog\CategoryEntityToCategoryEditDtoMapper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,18 +14,12 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class CategoryCreateController extends AbstractController
 {
-    private CategoryEntityToCategoryEditDtoMapper $mapper;
-
     private TranslatorInterface $translator;
 
     private CategoryManager $categoryManager;
 
-    public function __construct(
-        CategoryEntityToCategoryEditDtoMapper $mapper,
-        TranslatorInterface $translator,
-        CategoryManager $categoryManager
-    ) {
-        $this->mapper = $mapper;
+    public function __construct(TranslatorInterface $translator, CategoryManager $categoryManager)
+    {
         $this->translator = $translator;
         $this->categoryManager = $categoryManager;
     }

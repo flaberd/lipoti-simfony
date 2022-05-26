@@ -33,7 +33,7 @@ class ProductEditType extends AbstractType
                 'multiple' => false,
                 'expanded' => false,
                 'label' => false,
-                'required' => false,
+                'required' => true,
                 'placeholder' => 'noCategory',
             ])
             ->add('slug', TextType::class, [

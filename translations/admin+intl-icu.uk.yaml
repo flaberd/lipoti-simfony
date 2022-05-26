@@ -2,8 +2,8 @@ common.save_submit_btn: Зберегти
 sidebar_menu.catalog: Каталог
 sidebar_menu.category: Категорії
 sidebar_menu.product: Товари
-sidebar_menu.dashboard: Панель
 sidebar_menu.logout: Вихід
+sidebar_menu.dashboard: Панель
 catalog.category_list.page_title: Категорії
 catalog.category_list.filter_title: 'Фільтр категорій'
 catalog.category_list.filter_submit_btn: Фільтрувати
@@ -51,3 +51,11 @@ catalog.product_edit.field_category: Категорія
 catalog.product_edit.field_slug: ЧПУ
 catalog.product_edit.field_name: Назва
 catalog.product_edit.field_description: Опис
+catalog.product_list.create_success: Товар додано
+breadcrumbs.dashboard: Панель
+breadcrumbs.category_list: Категорії
+breadcrumbs.category_create: Додавання категорії
+breadcrumbs.category_edit: Редгування категорії
+breadcrumbs.product_list: Товари
+breadcrumbs.product_create: Додавання товару
+breadcrumbs.product_edit: Редагування товару

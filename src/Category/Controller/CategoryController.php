@@ -13,15 +13,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CategoryController extends AbstractController
 {
-
     private PaginatorInterface $paginator;
 
     private CategoryRepository $categoryRepo;
 
-    public function __construct(
-        CategoryRepository $categoryRepo,
-        PaginatorInterface $paginator
-    )
+    public function __construct(CategoryRepository $categoryRepo, PaginatorInterface $paginator)
     {
         $this->categoryRepo = $categoryRepo;
         $this->paginator = $paginator;

@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Lipoti\Shop\Admin\Repository;
-
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
@@ -17,7 +17,7 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
-    //backend
+    // backend
     public function findAllByFilter(CategoryListFilter $filter): Query
     {
         $category = $this->createQueryBuilder('c')

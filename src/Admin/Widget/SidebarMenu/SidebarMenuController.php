@@ -37,6 +37,7 @@ class SidebarMenuController extends AbstractController
         $category->setIndicatorPath([
             'admin_catalog_category_list',
             'admin_catalog_category_edit',
+            'admin_catalog_category_create',
         ]);
         $category->setActive(\in_array($path, $category->getIndicatorPath(), true));
         $catalogChildren[] = $category;
@@ -47,6 +48,7 @@ class SidebarMenuController extends AbstractController
         $product->setIndicatorPath([
             'admin_catalog_product_list',
             'admin_catalog_product_edit',
+            'admin_catalog_product_create',
         ]);
         $product->setActive(\in_array($path, $product->getIndicatorPath(), true));
         $catalogChildren[] = $product;

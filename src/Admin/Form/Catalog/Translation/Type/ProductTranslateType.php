@@ -18,9 +18,9 @@ class ProductTranslateType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('description', CKEditorType::class, [
-//                'config' => [
-//                    'toolbar' => 'full'
-//                ],
+                //                'config' => [
+                //                    'toolbar' => 'full'
+                //                ],
                 'config_name' => 'basic_config',
             ])
         ;

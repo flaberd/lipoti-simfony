@@ -10,6 +10,7 @@ use Lipoti\Shop\Admin\Form\Catalog\Translation\ProductTranslateDto;
 use Lipoti\Shop\Admin\Repository\ProductRepository;
 use Lipoti\Shop\Admin\Repository\ProductTranslateRepository;
 use Lipoti\Shop\Core\Entity\Product;
+use Lipoti\Shop\Core\Entity\ProductTranslate;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class ProductManager
@@ -28,6 +29,40 @@ class ProductManager
         $this->em = $em;
         $this->productTranslateRepo = $productTranslateRepo;
         $this->productRepo = $productRepo;
+    }
+
+    public function create(ProductEditDto $dto): void
+    {
+        $product = new Product();
+        $product->setStatus($dto->getStatus());
+        $product->setCategory($dto->getCategory());
+
+        $translation = $dto->getTranslation();
+        $slugger = new AsciiSlugger();
+        $slug = $slugger->slug($dto->getSlug() ?? $translation[\Locale::getDefault()]->getName())->toString();
+        $duplicateSlugs = $this->productRepo->findBySlug($slug);
+        if (!empty($duplicateSlugs)) {
+            $slugSufix = [];
+            foreach ($duplicateSlugs as $duplicateSlug) {
+                $slugSufix[] = (int) str_replace([$slug, '_'], '', $duplicateSlug->getSlug());
+            }
+            $slug .= '_' . (max($slugSufix) + 1);
+        }
+
+        $product->setSlug($slug);
+
+        $this->em->persist($product);
+        /** @var ProductTranslateDto $translate */
+        foreach ($translation as $langKey => $translate) {
+            $productTranslate = new ProductTranslate();
+            $productTranslate->setLocale($langKey);
+            $productTranslate->setProduct($product);
+            $productTranslate->setName($translate->getName());
+            $productTranslate->setDescription($translate->getDescription());
+            $this->em->persist($productTranslate);
+        }
+
+        $this->em->flush();
     }
 
     public function update(ProductEditDto $dto, Product $product): void
